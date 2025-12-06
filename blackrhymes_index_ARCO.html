@@ -1,0 +1,1701 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BLACKRHYMES – Estudio de Grabación Urbano</title>
+  <meta name="description" content="BLACKRHYMES es un estudio de grabación especializado en artistas urbanos. Graba, mezcla y lanza tus tracks con calidad profesional en CDMX.">
+
+  <style>
+    :root {
+      --bg: #050509;
+      --bg-alt: #101019;
+      --accent: #f5c74e;
+      --accent-soft: #f5c74e33;
+      --accent-strong: #ffb300;
+      --text-main: #f5f5f7;
+      --text-muted: #a5a5b4;
+      --border: #26263a;
+      --radius: 14px;
+      --shadow-soft: 0 18px 60px #000000aa;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #202036 0, #050509 55%);
+      color: var(--text-main);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    a:hover { text-decoration: underline; }
+
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* HEADER */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: linear-gradient(to bottom, #050509ee, #050509d9 55%, transparent);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid #181824;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.6rem 0;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .logo-img {
+      height: 46px;
+      width: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 0 8px #000000cc);
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      gap: 0.05rem;
+    }
+    .logo-text span:first-child {
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      font-size: 0.8rem;
+    }
+    .logo-text span:last-child {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.2rem;
+      margin: 0;
+      padding: 0;
+      font-size: 0.88rem;
+    }
+
+    nav a {
+      position: relative;
+      padding-bottom: 0.2rem;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: width 0.2s ease-out;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.6rem 1.4rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.15s ease-out, box-shadow 0.15s ease-out, background 0.15s;
+      background: var(--accent);
+      color: #181818;
+      box-shadow: 0 8px 24px #00000088;
+    }
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 14px 40px #000000aa;
+      background: var(--accent-strong);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border-color: var(--border);
+      color: var(--text-main);
+      box-shadow: none;
+    }
+    .btn-outline:hover {
+      background: #151523;
+      border-color: var(--accent-soft);
+    }
+
+    /* HERO */
+
+    .hero {
+      padding: 3.2rem 0 2.8rem;
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 2.2rem;
+      align-items: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.3rem 0.75rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      background: #070712ee;
+      box-shadow: 0 8px 30px #000000aa;
+    }
+
+    .hero-badge span {
+      display: inline-flex;
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 8px #22c55eaa;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.1rem, 3.1vw, 2.7rem);
+      margin: 1.1rem 0 0.7rem;
+    }
+    .hero h1 strong { color: var(--accent); }
+
+    .hero p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      max-width: 32rem;
+    }
+
+    .hero-cta {
+      margin-top: 1.4rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      align-items: center;
+    }
+    .hero-cta small {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .hero-right {
+      position: relative;
+      border-radius: 26px;
+      border: 1px solid var(--border);
+      background: radial-gradient(circle at top left, #f5c74e22 0, #070711 55%);
+      padding: 1.2rem 1.3rem 1.3rem;
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+    }
+
+    .hero-right::before {
+      content: "";
+      position: absolute;
+      width: 280px;
+      height: 280px;
+      background: radial-gradient(circle, #f5c74e1f 0, transparent 60%);
+      top: -120px;
+      right: -60px;
+      opacity: 0.8;
+      animation: floatGlow 8s ease-in-out infinite alternate;
+      pointer-events: none;
+    }
+
+    .hero-metric-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.7rem;
+      margin-top: 0.9rem;
+      font-size: 0.8rem;
+    }
+
+    .hero-metric {
+      padding: 0.65rem 0.7rem;
+      border-radius: 16px;
+      background: #080815;
+      border: 1px solid #23233b;
+    }
+
+    .hero-metric strong {
+      display: block;
+      font-size: 0.95rem;
+    }
+    .hero-metric span {
+      color: var(--text-muted);
+      font-size: 0.76rem;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      padding: 0.25rem 0.55rem;
+      border-radius: 999px;
+      border: 1px solid var(--accent-soft);
+      font-size: 0.7rem;
+      color: var(--accent);
+      margin-bottom: 0.35rem;
+    }
+
+    .hero-list {
+      margin: 0.4rem 0 0.8rem;
+      padding-left: 1.2rem;
+      font-size: 0.84rem;
+      color: var(--text-muted);
+    }
+    .hero-list li + li { margin-top: 0.15rem; }
+
+    /* SECCIONES GENERALES */
+
+    section {
+      padding: 2.3rem 0;
+    }
+
+    section h2 {
+      margin: 0 0 0.3rem;
+      font-size: 1.5rem;
+    }
+
+    .section-subtitle {
+      margin: 0;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      max-width: 32rem;
+    }
+
+    .grid {
+      display: grid;
+      gap: 1.5rem;
+    }
+    .grid-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .grid-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .card {
+      background: #090913;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      padding: 1.2rem;
+      font-size: 0.9rem;
+      box-shadow: 0 12px 36px #00000066;
+    }
+
+    .card h3 {
+      margin-top: 0;
+      margin-bottom: 0.35rem;
+      font-size: 1.02rem;
+    }
+
+    .muted {
+      color: var(--text-muted);
+      font-size: 0.86rem;
+    }
+
+    .badge {
+      display: inline-flex;
+      padding: 0.1rem 0.55rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .price {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    ul.clean {
+      list-style: none;
+      padding-left: 1rem;
+      margin: 0.4rem 0 0;
+      color: var(--text-muted);
+      font-size: 0.84rem;
+    }
+
+    ul.clean li::before {
+      content: "• ";
+      color: var(--accent);
+      margin-left: -0.7rem;
+      margin-right: 0.1rem;
+    }
+
+    /* SLIDERS */
+
+    .slider {
+      display: flex;
+      overflow-x: auto;
+      gap: 1rem;
+      scroll-snap-type: x mandatory;
+      padding-bottom: 1rem;
+      margin-top: 1.2rem;
+    }
+
+    .slider::-webkit-scrollbar {
+      height: 6px;
+    }
+    .slider::-webkit-scrollbar-thumb {
+      background: #323248;
+      border-radius: 20px;
+    }
+
+    .slide {
+      min-width: 260px;
+      border-radius: 16px;
+      overflow: hidden;
+      scroll-snap-align: start;
+      background: #090913;
+      border: 1px solid #26263a;
+      box-shadow: 0 14px 40px #00000077;
+      transform: translateY(0);
+      transition: transform 0.18s ease-out, box-shadow 0.18s ease-out;
+    }
+    .slide:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 60px #000000aa;
+    }
+
+    .slide img {
+      width: 100%;
+      height: 164px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .slide-content {
+      padding: 0.8rem 0.9rem 0.9rem;
+    }
+    .slide-content strong {
+      font-size: 0.92rem;
+    }
+    .slide-content p {
+      margin: 0.2rem 0 0;
+    }
+
+    /* TESTIMONIOS */
+
+    .testimonials {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1.2rem;
+    }
+
+    .testimonial {
+      background: #080813;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      padding: 0.9rem;
+      font-size: 0.84rem;
+    }
+
+    .testimonial strong {
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+
+    .stars {
+      color: var(--accent);
+      font-size: 0.83rem;
+      margin-bottom: 0.15rem;
+    }
+
+    /* PROCESO */
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+      font-size: 0.84rem;
+    }
+
+    .step {
+      background: #090913;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      padding: 0.9rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .step span {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      border: 1px solid var(--accent-soft);
+      font-size: 0.76rem;
+      margin-bottom: 0.4rem;
+      color: var(--accent);
+    }
+
+    /* FORM / CTA FINAL */
+
+    .cta-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      gap: 1.8rem;
+      margin-top: 1.5rem;
+      align-items: flex-start;
+    }
+
+    form { font-size: 0.9rem; }
+
+    .form-row { margin-bottom: 0.8rem; }
+
+    label {
+      display: block;
+      margin-bottom: 0.2rem;
+      font-size: 0.83rem;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 0.55rem 0.7rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: #05050d;
+      color: var(--text-main);
+      font-family: inherit;
+      font-size: 0.88rem;
+    }
+
+    textarea { resize: vertical; min-height: 80px; }
+
+    .inline {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .inline input[type="checkbox"] { width: auto; }
+
+    .alert {
+      font-size: 0.8rem;
+      padding: 0.6rem 0.8rem;
+      border-radius: 9px;
+      background: #291212;
+      border: 1px solid #5b2525;
+      color: #ffc5c5;
+      margin-bottom: 0.7rem;
+      display: none;
+    }
+
+    .cta-panel {
+      background: #070712;
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      padding: 1rem 1rem 1.1rem;
+      font-size: 0.86rem;
+      box-shadow: 0 12px 36px #00000088;
+    }
+
+    .cta-panel h3 {
+      margin: 0 0 0.4rem;
+      font-size: 1rem;
+    }
+
+    .cta-panel-list {
+      list-style: none;
+      padding-left: 1rem;
+      margin: 0.4rem 0;
+      color: var(--text-muted);
+      font-size: 0.8rem;
+    }
+
+    .cta-panel-list li::before {
+      content: "✓ ";
+      color: #4ade80;
+      margin-left: -0.8rem;
+      margin-right: 0.2rem;
+    }
+
+    .offer-pill {
+      display: inline-flex;
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      border: 1px dashed var(--accent-soft);
+      font-size: 0.73rem;
+      color: var(--accent);
+      margin-top: 0.4rem;
+    }
+
+    .faq {
+      margin-top: 1.5rem;
+      font-size: 0.88rem;
+    }
+
+    .faq-item + .faq-item {
+      margin-top: 0.7rem;
+      padding-top: 0.7rem;
+      border-top: 1px solid #181824;
+    }
+
+    .faq-item strong {
+      display: block;
+      margin-bottom: 0.15rem;
+    }
+
+    /* LEGAL */
+
+    .legal-section {
+      background: #05050c;
+      border-top: 1px solid #181824;
+      margin-top: 2.5rem;
+      padding-top: 2.3rem;
+    }
+
+    .legal-block {
+      margin-bottom: 2rem;
+      font-size: 0.84rem;
+      color: var(--text-muted);
+    }
+
+    .legal-block h3 {
+      margin: 0 0 0.4rem;
+      font-size: 1rem;
+      color: var(--text-main);
+    }
+
+    .legal-block h4 {
+      margin: 0.7rem 0 0.25rem;
+      font-size: 0.9rem;
+      color: var(--text-main);
+    }
+
+    .legal-block ul {
+      margin: 0.2rem 0 0.5rem 1.1rem;
+      padding: 0;
+    }
+
+    .legal-block li {
+      margin-bottom: 0.15rem;
+    }
+
+    /* ESTUDIO DE MERCADO / VALOR */
+
+    .tag-pill {
+      display: inline-flex;
+      padding: 0.18rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid var(--accent-soft);
+      font-size: 0.72rem;
+      color: var(--accent);
+      margin-bottom: 0.4rem;
+    }
+
+    /* FOOTER */
+
+    footer {
+      border-top: 1px solid #181824;
+      background: #050509;
+      padding: 1.5rem 0 2rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .footer-top {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    /* COOKIE BANNER */
+
+    .cookie-banner {
+      position: fixed;
+      bottom: 1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      max-width: 540px;
+      width: calc(100% - 2rem);
+      background: #050509ee;
+      border-radius: 14px;
+      border: 1px solid #26263a;
+      padding: 0.9rem 1rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      z-index: 100;
+      backdrop-filter: blur(16px);
+      display: none;
+    }
+
+    .cookie-actions {
+      margin-top: 0.7rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      justify-content: flex-end;
+    }
+
+    .cookie-btn {
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      padding: 0.35rem 0.8rem;
+      font-size: 0.78rem;
+      background: #101018;
+      color: var(--text-main);
+      cursor: pointer;
+    }
+
+    .cookie-btn.primary {
+      background: var(--accent);
+      color: #111;
+      border-color: transparent;
+      font-weight: 600;
+    }
+
+    .cookie-panel {
+      display: none;
+      margin-top: 0.45rem;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      padding: 0.55rem 0.65rem;
+      background: #050509f2;
+    }
+
+    .cookie-panel h4 {
+      margin: 0 0 0.25rem;
+      font-size: 0.8rem;
+      color: var(--text-main);
+    }
+
+    .cookie-panel-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.45rem;
+      margin-bottom: 0.25rem;
+      font-size: 0.76rem;
+      color: var(--text-muted);
+    }
+
+    .cookie-panel-item input { width: auto; margin-top: 0.1rem; }
+
+    /* ANIMACIONES */
+
+    @keyframes floatGlow {
+      0% { transform: translate3d(0,0,0) scale(1); opacity: 0.9; }
+      100% { transform: translate3d(-20px, 16px,0) scale(1.1); opacity: 0.7; }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    }
+    .reveal.left { transform: translateX(-30px); }
+    .reveal.right { transform: translateX(30px); }
+    .reveal.in-view {
+      opacity: 1;
+      transform: translate(0,0);
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: minmax(0, 1fr); }
+      .hero-right { order: -1; }
+      .grid-3 { grid-template-columns: minmax(0, 1fr); }
+      .grid-2 { grid-template-columns: minmax(0, 1fr); }
+      .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .testimonials { grid-template-columns: minmax(0, 1fr); }
+      .cta-grid { grid-template-columns: minmax(0, 1fr); }
+      nav ul { display: none; }
+    }
+
+    @media (max-width: 600px) {
+      .steps { grid-template-columns: minmax(0, 1fr); }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header>
+    <div class="container nav">
+      <div class="logo">
+        <img src="LOGOS VINIL.jpg" alt="BLACKRHYMES Logo" class="logo-img">
+        <div class="logo-text">
+          <span>BLACKRHYMES™</span>
+          <span>Estudio de Grabación Urbano</span>
+        </div>
+      </div>
+      <div class="nav-cta">
+        <nav aria-label="Navegación principal">
+          <ul>
+            <li><a href="#por-que">Por qué</a></li>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#paquetes">Paquetes</a></li>
+            <li><a href="#cta-final">Reserva</a></li>
+            <li><a href="#aviso-privacidad">Legal</a></li>
+          </ul>
+        </nav>
+        <button class="btn-outline" onclick="document.getElementById('cta-final').scrollIntoView({behavior:'smooth'});">
+          Reservar
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <main>
+    <div class="container hero">
+      <section class="reveal left">
+        <div class="hero-badge">
+          <span></span> Agenda limitada · CDMX · Estudio especializado en música urbana
+        </div>
+        <h1>
+          Convierte tus barras en <strong>tracks listos para plataformas</strong>.
+        </h1>
+        <p>
+          BLACKRHYMES es un estudio de grabación urbano en CDMX para artistas de rap, trap y reggaetón que quieren sonar profesional sin perder su estilo.
+        </p>
+        <div class="hero-cta">
+          <button class="btn" onclick="document.getElementById('cta-final').scrollIntoView({behavior:'smooth'});">
+            Quiero agendar mi sesión
+          </button>
+          <button class="btn-outline" onclick="document.getElementById('paquetes').scrollIntoView({behavior:'smooth'});">
+            Ver precios y paquetes
+          </button>
+          <small>Sin pago hasta confirmar fecha y horario.</small>
+        </div>
+      </section>
+
+      <aside class="hero-right reveal right" aria-label="Datos del estudio">
+        <div class="hero-tag">Estudio urbano premium en CDMX</div>
+        <p class="muted" style="margin-top:0;">
+          Pensado para raperos, traperos y artistas urbanos que quieren salir con canciones listas para Spotify, YouTube y redes.
+        </p>
+        <ul class="hero-list">
+          <li>Ingeniero de audio especializado en géneros urbanos.</li>
+          <li>Cabina tratada acústicamente y microfonía profesional.</li>
+          <li>Entrega de archivos listos para distribución digital.</li>
+        </ul>
+
+        <div class="hero-metric-grid">
+          <div class="hero-metric">
+            <strong>+150</strong><span>tracks grabados en los últimos 12 meses.</span>
+          </div>
+          <div class="hero-metric">
+            <strong>92%</strong><span>de artistas regresan a grabar al menos una vez más.</span>
+          </div>
+          <div class="hero-metric">
+            <strong>4.9/5</strong><span>de satisfacción promedio en sesiones.</span>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <!-- POR QUÉ -->
+    <div class="container">
+      <section id="por-que" class="reveal">
+        <h2>¿Por qué grabar en BLACKRHYMES?</h2>
+        <p class="section-subtitle">
+          Cumplimos con estándares legales y de calidad para que tengas confianza al contratar y resultados profesionales en cada sesión.
+        </p>
+
+        <div class="grid grid-3" style="margin-top:1.3rem;">
+          <div class="card">
+            <div class="badge">Especialización urbana</div>
+            <h3>Hecho para rap, trap y reggaetón</h3>
+            <p class="muted">
+              No somos un estudio genérico: todo está diseñado para la voz urbana, desde la cadena de audio hasta la forma de mezclar.
+            </p>
+          </div>
+          <div class="card">
+            <div class="badge">Claridad y confianza</div>
+            <h3>Legalmente responsable</h3>
+            <p class="muted">
+              Aviso de privacidad, Términos y Condiciones, política de cookies y datos de contacto claros, conforme a la legislación mexicana.
+            </p>
+          </div>
+          <div class="card">
+            <div class="badge">Enfoque en resultado</div>
+            <h3>Sales con algo que puedes lanzar</h3>
+            <p class="muted">
+              No solo se trata de grabar: el objetivo es que salgas con una canción que puedas subir y promocionar sin pena.
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- SERVICIOS -->
+    <div class="container">
+      <section id="servicios" class="reveal">
+        <h2>Servicios de BLACKRHYMES</h2>
+        <p class="section-subtitle">
+          Todo lo necesario para producir, grabar y mezclar música urbana de forma profesional.
+        </p>
+
+        <div class="grid grid-3" style="margin-top:1.3rem;">
+          <div class="card">
+            <div class="badge">Grabación</div>
+            <h3>Cabina profesional</h3>
+            <p class="muted">
+              Grabación de voz principal, dobles, ad-libs y coros en una cabina tratada con microfonía de estudio y monitoreo en tiempo real.
+            </p>
+            <ul class="clean">
+              <li>Ingeniero especializado en géneros urbanos.</li>
+              <li>Revisión de tomas durante la sesión.</li>
+              <li>Entrega de pistas de voz crudas y rebote de referencia.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="badge">Mezcla</div>
+            <h3>Mezcla urbana</h3>
+            <p class="muted">
+              Procesamiento de voz y beat para lograr claridad y pegada: EQ, compresión, efectos, panoramas y ajustes finos.
+            </p>
+            <ul class="clean">
+              <li>Mezcla básica incluida en algunos paquetes.</li>
+              <li>Exportación en WAV y MP3 para plataformas.</li>
+              <li>1 ronda de ajustes según el paquete elegido.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="badge">Producción</div>
+            <h3>Beatmaking y dirección</h3>
+            <p class="muted">
+              Beats originales o adaptación de instrumentales, más apoyo en estructura y concepto del track.
+            </p>
+            <ul class="clean">
+              <li>Beats en trap, drill, reggaetón y R&B urbano.</li>
+              <li>Asesoría en estructuras: versos, hooks y puentes.</li>
+              <li>Recomendaciones para lanzamiento y promoción.</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3 style="margin-top:2rem; font-size:1rem;">Mira el ambiente del estudio</h3>
+        <p class="muted" style="margin-top:0.2rem;">Desliza horizontalmente para ver más.</p>
+
+        <div class="slider">
+          <div class="slide">
+            <img src="https://picsum.photos/seed/brconsole/900/600" alt="Consola de audio profesional">
+            <div class="slide-content">
+              <strong>Consola y DAW profesionales</strong>
+              <p class="muted">Flujo de trabajo pensado para sesiones urbanas dinámicas.</p>
+            </div>
+          </div>
+          <div class="slide">
+            <img src="https://picsum.photos/seed/brvocal/900/600" alt="Micrófono de estudio para voz">
+            <div class="slide-content">
+              <strong>Cadena de voz cuidada</strong>
+              <p class="muted">Microfonía de estudio y preamplificación pensada para voz urbana.</p>
+            </div>
+          </div>
+          <div class="slide">
+            <img src="https://picsum.photos/seed/brbeats/900/600" alt="Producción musical en laptop">
+            <div class="slide-content">
+              <strong>Producción urbana</strong>
+              <p class="muted">Beats y arreglos hechos a la medida de tu proyecto.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- PAQUETES -->
+    <div class="container">
+      <section id="paquetes" class="reveal">
+        <h2>Paquetes y precios transparentes</h2>
+        <p class="section-subtitle">
+          Precios finales en MXN, con impuestos incluidos. Cualquier costo adicional se acuerda por escrito antes de iniciar la sesión.
+        </p>
+
+        <div class="grid grid-3" style="margin-top:1.3rem;">
+          <div class="card">
+            <div class="badge">Para probar el estudio</div>
+            <h3>Sesión Rápida</h3>
+            <p class="price">$650 MXN</p>
+            <p class="muted">1 hora de estudio · Grabación en cabina.</p>
+            <ul class="clean">
+              <li>Ideal para demos y freestyles.</li>
+              <li>Ingeniero en cabina incluido.</li>
+              <li>Archivo de referencia al terminar.</li>
+            </ul>
+          </div>
+          <div class="card" style="border-color:var(--accent-soft); box-shadow:0 18px 55px #000000aa;">
+            <div class="badge" style="border-color:var(--accent-soft); color:var(--accent);">
+              Más contratado
+            </div>
+            <h3>Single Completo</h3>
+            <p class="price">$1,800 MXN</p>
+            <p class="muted">3 horas de estudio · Grabación + mezcla básica.</p>
+            <ul class="clean">
+              <li>Grabación de voz principal, dobles y coros.</li>
+              <li>Mezcla con edición ligera de voz.</li>
+              <li>Versión lista para plataformas digitales.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="badge">Proyecto serio</div>
+            <h3>EP Urbano (4 tracks)</h3>
+            <p class="price">$6,500 MXN</p>
+            <p class="muted">Horas flexibles + mezcla de 4 canciones.</p>
+            <ul class="clean">
+              <li>Planificación de sesiones según tu agenda.</li>
+              <li>Sonido consistente en todas las rolas.</li>
+              <li>1 ronda de ajustes por track incluida.</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3 style="margin-top:2rem; font-size:1rem;">Paquetes en acción</h3>
+        <p class="section-subtitle">Desliza para ver escenas del tipo de trabajo que hacemos.</p>
+
+        <div class="slider">
+          <div class="slide">
+            <img src="https://picsum.photos/seed/brfast/900/600" alt="Artista grabando en cabina">
+            <div class="slide-content">
+              <strong>Sesión rápida</strong>
+              <p class="muted">Aprovecha al máximo 1 hora con la letra ya lista.</p>
+            </div>
+          </div>
+          <div class="slide">
+            <img src="https://picsum.photos/seed/brsingle/900/600" alt="Mezcla de audio">
+            <div class="slide-content">
+              <strong>Single completo</strong>
+              <p class="muted">De idea a canción mezclada, lista para subir.</p>
+            </div>
+          </div>
+          <div class="slide">
+            <img src="https://picsum.photos/seed/brep/900/600" alt="EP urbano en proceso">
+            <div class="slide-content">
+              <strong>EP urbano</strong>
+              <p class="muted">Construye identidad sonora en varias canciones.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- PROCESO + TESTIMONIOS -->
+    <div class="container">
+      <section class="reveal">
+        <h2>Así es trabajar con BLACKRHYMES</h2>
+        <p class="section-subtitle">
+          Proceso claro de contratación, ejecución y entrega del servicio, con políticas de cancelación y facturación definidas.
+        </p>
+
+        <div class="steps">
+          <div class="step">
+            <span>1</span>
+            <strong>Solicitud y cotización</strong>
+            <p class="muted">Nos escribes, eliges paquete, te enviamos costos finales y condiciones por escrito.</p>
+          </div>
+          <div class="step">
+            <span>2</span>
+            <strong>Agenda y anticipo</strong>
+            <p class="muted">Definimos fecha y horario. En algunos casos se solicita anticipo para asegurar la reserva.</p>
+          </div>
+          <div class="step">
+            <span>3</span>
+            <strong>Sesión en estudio</strong>
+            <p class="muted">Grabamos y, según el paquete, avanzamos en mezcla o producción.</p>
+          </div>
+          <div class="step">
+            <span>4</span>
+            <strong>Entrega y facturación</strong>
+            <p class="muted">Te entregamos archivos finales y, si lo solicitas, factura CFDI del servicio.</p>
+          </div>
+        </div>
+
+        <h3 style="margin-top:2rem; font-size:1rem;">Testimonios de clientes</h3>
+        <div class="testimonials">
+          <div class="testimonial">
+            <div class="stars">★★★★★</div>
+            <strong>NEON KID</strong>
+            <p class="muted">“La sesión se sintió fluida y profesional. Salí con un single listo para subir a plataformas.”</p>
+          </div>
+          <div class="testimonial">
+            <div class="stars">★★★★★</div>
+            <strong>LUNA B</strong>
+            <p class="muted">“Me gustó que todo estaba claro: precios, tiempos y lo que incluía el paquete.”</p>
+          </div>
+          <div class="testimonial">
+            <div class="stars">★★★★☆</div>
+            <strong>CRUDO 13</strong>
+            <p class="muted">“Buen trato, buena mezcla y ambiente cómodo. Estoy cerrando mi EP aquí.”</p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ESTUDIO DE MERCADO Y PROPUESTA DE VALOR -->
+    <div class="container">
+      <section class="reveal">
+        <h2>Estudio de mercado y propuesta de valor</h2>
+
+        <div class="grid grid-2" style="margin-top:1.2rem;">
+          <div class="card">
+            <div class="tag-pill">Estudio de mercado</div>
+            <h3>Segmento objetivo y competencia</h3>
+            <p class="muted">
+              Nos enfocamos en artistas urbanos independientes de 16 a 35 años en CDMX y área metropolitana que producen rap, trap, drill y reggaetón.
+              Muchos graban en home studios o estudios genéricos donde la mezcla urbana no es prioridad.
+            </p>
+            <ul class="clean">
+              <li>Competimos con estudios generalistas, estudios urbanos consolidados y home studios.</li>
+              <li>BLACKRHYMES se posiciona como estudio urbano especializado, con precios accesibles pero servicio profesional.</li>
+              <li>Los precios de los paquetes están definidos a partir de comparación con estudios similares y valor percibido.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="tag-pill">Propuesta de valor</div>
+            <h3>Ventaja competitiva</h3>
+            <p class="muted">
+              BLACKRHYMES ofrece un estudio diseñado para música urbana, con procesos claros, enfoque en resultado y cumplimiento legal integral.
+            </p>
+            <ul class="clean">
+              <li>Especialización real en géneros urbanos, no solo “servicio de audio genérico”.</li>
+              <li>Servicios y paquetes orientados a resultados (“track listo para plataformas”).</li>
+              <li>Comunicación clara y formal sobre precios, términos y tratamiento de datos personales.</li>
+              <li>Uso de testimonios y contenido digital para fortalecer posicionamiento en redes.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- CTA FINAL / FORMULARIO -->
+    <div class="container">
+      <section id="cta-final" class="reveal">
+        <h2>Agenda tu siguiente sesión</h2>
+        <p class="section-subtitle">
+          Llena el formulario, revisa los Términos y Condiciones y el Aviso de Privacidad, y te contactaremos para confirmar fecha, horario y forma de pago.
+        </p>
+
+        <div id="alert-form" class="alert">
+          Por favor, completa los campos obligatorios y acepta los Términos y Condiciones y el Aviso de Privacidad antes de enviar tu solicitud.
+        </div>
+
+        <div class="cta-grid">
+          <form id="booking-form" novalidate>
+            <div class="form-row">
+              <label for="nombre">Nombre artístico o completo *</label>
+              <input type="text" id="nombre" name="nombre" required>
+            </div>
+            <div class="form-row">
+              <label for="email">Correo electrónico *</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-row">
+              <label for="whatsapp">WhatsApp *</label>
+              <input type="tel" id="whatsapp" name="whatsapp" required>
+            </div>
+            <div class="form-row">
+              <label for="tipo-sesion">¿Qué quieres grabar? *</label>
+              <select id="tipo-sesion" name="tipo-sesion" required>
+                <option value="">Selecciona una opción</option>
+                <option value="freestyle">Freestyle / demo rápida</option>
+                <option value="single">Single completo</option>
+                <option value="ep">EP o varios tracks</option>
+                <option value="otro">Otro (especifica en el mensaje)</option>
+              </select>
+            </div>
+            <div class="form-row">
+              <label for="fecha">Fecha preferente</label>
+              <input type="date" id="fecha" name="fecha">
+            </div>
+            <div class="form-row">
+              <label for="mensaje">Cuéntanos de tu proyecto</label>
+              <textarea id="mensaje" name="mensaje" placeholder="Ej. 2 canciones trap, ya tengo beat, busco grabación + mezcla."></textarea>
+            </div>
+            <div class="form-row inline">
+              <input type="checkbox" id="acepto" name="acepto" required>
+              <label for="acepto">
+                He leído y acepto los <a href="#terminos-condiciones">Términos y Condiciones</a> y el
+                <a href="#aviso-privacidad">Aviso de Privacidad</a>.
+              </label>
+            </div>
+            <button type="submit" class="btn" style="margin-top:0.5rem;">
+              Enviar solicitud de reserva
+            </button>
+          </form>
+
+          <aside class="cta-panel">
+            <h3>Pagos y seguridad</h3>
+            <ul class="cta-panel-list">
+              <li>Pagos a través de pasarelas certificadas (por ejemplo, PayPal, Mercado Pago o Conekta) con cumplimiento PCI-DSS.</li>
+              <li>Posibilidad de pagar con tarjeta de crédito/débito, transferencia SPEI o billeteras digitales.</li>
+              <li>Conexión cifrada mediante HTTPS (certificado SSL) para proteger la información enviada.</li>
+              <li>Opcionalmente se pueden aplicar mecanismos de verificación 3D Secure y tokens antifraude de las pasarelas.</li>
+            </ul>
+            <p class="muted">
+              Tras el pago, recibirás comprobante por correo y, si lo solicitas dentro del mismo mes, tu factura CFDI con los datos fiscales que proporciones.
+            </p>
+            <div class="offer-pill">
+              Oferta de lanzamiento: 10% de descuento en tu primera sesión completa.
+            </div>
+          </aside>
+        </div>
+
+        <div class="faq">
+          <div class="faq-item">
+            <strong>¿Qué pasa si no puedo asistir el día de la sesión?</strong>
+            <p class="muted">
+              Si cancelas con al menos 48 horas de anticipación, podemos reprogramar sin costo. Con menos de 24 horas o inasistencia, el anticipo puede no ser reembolsable, salvo causas de fuerza mayor justificadas.
+            </p>
+          </div>
+          <div class="faq-item">
+            <strong>¿Puedo pedir factura?</strong>
+            <p class="muted">
+              Sí. Debes enviarnos tu RFC, razón social y domicilio fiscal al confirmar la sesión o a más tardar dentro del mismo mes natural del pago para emitir el CFDI correspondiente.
+            </p>
+          </div>
+          <div class="faq-item">
+            <strong>¿Quién es dueño de la música que grabo?</strong>
+            <p class="muted">
+              El artista conserva los derechos sobre sus composiciones, letras y grabaciones, salvo pacto distinto por escrito. BLACKRHYMES solo conserva derechos sobre su marca, logotipo y materiales propios.
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- LEGAL COMPLETO -->
+    <div class="legal-section" id="legal">
+      <div class="container">
+        <!-- AVISO PRIVACIDAD -->
+        <div id="aviso-privacidad" class="legal-block">
+          <h3>Aviso de Privacidad – BLACKRHYMES STUDIO MX S.A. de C.V.</h3>
+          <p>
+            En cumplimiento de la Ley Federal de Protección de Datos Personales en Posesión de los Particulares (LFPDPPP),
+            BLACKRHYMES STUDIO MX S.A. de C.V. (“BLACKRHYMES”), con domicilio en Av. Sonora 123, Col. Roma Norte,
+            Alcaldía Cuauhtémoc, C.P. 06700, Ciudad de México, México, es responsable del tratamiento de tus datos personales.
+          </p>
+
+          <h4>Datos personales que recabamos</h4>
+          <p>Podemos recabar las siguientes categorías de datos personales:</p>
+          <ul>
+            <li>Identificación: nombre completo o artístico, edad (cuando aplique), ciudad y país.</li>
+            <li>Contacto: correo electrónico, teléfono y/o WhatsApp.</li>
+            <li>Facturación: RFC, razón social y domicilio fiscal.</li>
+            <li>Datos de servicio: tipo de sesiones contratadas, fechas de reserva, historial y forma de pago.</li>
+          </ul>
+          <p>
+            De forma excepcional, podremos recabar datos sensibles relacionados con salud o accesibilidad para facilitar tu ingreso
+            al estudio, los cuales se tratarán únicamente con tu consentimiento expreso.
+          </p>
+
+          <h4>Finalidades del tratamiento</h4>
+          <p><strong>Finalidades primarias:</strong></p>
+          <ul>
+            <li>Gestionar tu solicitud de reserva y la prestación de los servicios de estudio de grabación contratados.</li>
+            <li>Emitir comprobantes de pago y facturación CFDI cuando lo solicites.</li>
+            <li>Dar seguimiento a dudas, aclaraciones y servicio posventa.</li>
+            <li>Cumplir obligaciones legales, fiscales y de seguridad aplicables.</li>
+          </ul>
+          <p><strong>Finalidades secundarias:</strong></p>
+          <ul>
+            <li>Enviar información promocional sobre paquetes, ofertas y novedades del estudio.</li>
+            <li>Invitarte a eventos, showcases o colaboraciones vinculadas a BLACKRHYMES.</li>
+            <li>Aplicar encuestas de satisfacción para mejorar nuestros servicios.</li>
+          </ul>
+          <p>
+            Si no deseas que tus datos se utilicen para finalidades secundarias, puedes manifestarlo enviando un correo a
+            <strong>datos@blackrhymes.mx</strong> con el asunto “Limitación de uso de datos”.
+          </p>
+
+          <h4>Transferencias de datos</h4>
+          <p>Podemos compartir tus datos personales con terceros en los siguientes casos:</p>
+          <ul>
+            <li>
+              Proveedores de servicios de pago (por ejemplo, PayPal, Mercado Pago o Conekta) para procesar los cobros,
+              los cuales cumplen estándares de seguridad como PCI-DSS.
+            </li>
+            <li>
+              Proveedores de facturación electrónica para la emisión de CFDI.
+            </li>
+            <li>
+              Autoridades competentes cuando alguna ley lo requiera o por mandamiento de autoridad.
+            </li>
+          </ul>
+          <p>
+            Estas transferencias se realizan bajo medidas de seguridad y confidencialidad y, cuando sea necesario, con las
+            bases de legitimación previstas en la LFPDPPP.
+          </p>
+
+          <h4>Derechos ARCO y revocación del consentimiento</h4>
+          <p>
+            Puedes ejercer en cualquier momento tus derechos de Acceso, Rectificación, Cancelación u Oposición (ARCO),
+            así como revocar tu consentimiento para el tratamiento de tus datos personales.
+          </p>
+          <p>Para ejercer tus derechos ARCO, envía una solicitud a <strong>datos@blackrhymes.mx</strong> que incluya:</p>
+          <ul>
+            <li>Nombre completo o artístico y medio para comunicar la respuesta (correo electrónico).</li>
+            <li>Copia de identificación oficial o documento que acredite tu representación.</li>
+            <li>Descripción clara de los datos sobre los que deseas ejercer tus derechos.</li>
+            <li>Cualquier información adicional que ayude a localizar tus datos (por ejemplo, fecha de sesión).</li>
+          </ul>
+          <p>
+            BLACKRHYMES responderá tu solicitud en un plazo máximo de 20 días hábiles contados desde su recepción,
+            y de resultar procedente, ejecutará las acciones correspondientes dentro de los 15 días hábiles siguientes.
+          </p>
+          <p>
+            También puedes solicitar en cualquier momento la revocación de tu consentimiento para finalidades secundarias
+            a través del mismo correo.
+          </p>
+
+          <h4>Medidas de seguridad</h4>
+          <p>
+            Implementamos medidas administrativas, técnicas y físicas razonables para proteger tus datos personales,
+            como controles de acceso, contraseñas seguras y el uso de protocolos de cifrado (HTTPS / SSL) en la transmisión
+            de información mediante nuestra página web.
+          </p>
+
+          <h4>Uso de cookies y tecnologías similares</h4>
+          <p>
+            Utilizamos cookies necesarias para el funcionamiento del sitio y, con tu consentimiento, cookies analíticas
+            y de publicidad. Para más detalles, consulta la <a href="#politica-cookies">Política de Cookies</a>.
+          </p>
+
+          <h4>Cambios al Aviso de Privacidad</h4>
+          <p>
+            BLACKRHYMES podrá modificar este Aviso de Privacidad en cualquier momento. Los cambios se publicarán en esta
+            misma sección del sitio web, indicando la fecha de la última actualización.
+          </p>
+          <p>Última actualización: 03 de diciembre de 2025.
+
+<!-- REGISTRO INTERNO DE SOLICITUDES ARCO -->
+<div id="registro-arco" class="legal-block">
+  <h3>Registro Interno de Solicitudes ARCO (Evidencias de seguimiento)</h3>
+  <p>Este registro interno ficticio muestra el seguimiento realizado a solicitudes recibidas por BLACKRHYMES.</p>
+  <div style="overflow-x:auto;">
+    <table style="width:100%;border-collapse:collapse;font-size:0.8rem;margin-top:0.8rem;">
+      <thead>
+        <tr style="background:#0b0b14;color:#f5f5f7;">
+          <th style="border:1px solid #26263a;padding:6px;">Folio</th>
+          <th style="border:1px solid #26263a;padding:6px;">Fecha de recepción</th>
+          <th style="border:1px solid #26263a;padding:6px;">Tipo</th>
+          <th style="border:1px solid #26263a;padding:6px;">Titular</th>
+          <th style="border:1px solid #26263a;padding:6px;">Medio</th>
+          <th style="border:1px solid #26263a;padding:6px;">Estatus</th>
+          <th style="border:1px solid #26263a;padding:6px;">Fecha de respuesta</th>
+          <th style="border:1px solid #26263a;padding:6px;">Observaciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td style='border:1px solid #26263a;padding:6px;'>ARCO-001-2025</td><td style='border:1px solid #26263a;padding:6px;'>08/01/2025</td><td style='border:1px solid #26263a;padding:6px;'>Acceso</td><td style='border:1px solid #26263a;padding:6px;'>Carlos "CRUDO 13"</td><td style='border:1px solid #26263a;padding:6px;'>Correo</td><td style='border:1px solid #26263a;padding:6px;color:#4ade80;'>Atendida</td><td style='border:1px solid #26263a;padding:6px;'>16/01/2025</td><td style='border:1px solid #26263a;padding:6px;'>Historial entregado.</td></tr>
+        <tr><td style='border:1px solid #26263a;padding:6px;'>ARCO-002-2025</td><td style='border:1px solid #26263a;padding:6px;'>22/01/2025</td><td style='border:1px solid #26263a;padding:6px;'>Rectificación</td><td style='border:1px solid #26263a;padding:6px;'>Andrea "LUNA B"</td><td style='border:1px solid #26263a;padding:6px;'>Web</td><td style='border:1px solid #26263a;padding:6px;color:#4ade80;'>Atendida</td><td style='border:1px solid #26263a;padding:6px;'>28/01/2025</td><td style='border:1px solid #26263a;padding:6px;'>Datos actualizados.</td></tr>
+        <tr><td style='border:1px solid #26263a;padding:6px;'>ARCO-003-2025</td><td style='border:1px solid #26263a;padding:6px;'>02/02/2025</td><td style='border:1px solid #26263a;padding:6px;'>Cancelación</td><td style='border:1px solid #26263a;padding:6px;'>Josué Martínez</td><td style='border:1px solid #26263a;padding:6px;'>WhatsApp</td><td style='border:1px solid #26263a;padding:6px;color:#4ade80;'>Finalizada</td><td style='border:1px solid #26263a;padding:6px;'>10/02/2025</td><td style='border:1px solid #26263a;padding:6px;'>Datos eliminados.</td></tr>
+        <tr><td style='border:1px solid #26263a;padding:6px;'>ARCO-004-2025</td><td style='border:1px solid #26263a;padding:6px;'>14/02/2025</td><td style='border:1px solid #26263a;padding:6px;'>Oposición</td><td style='border:1px solid #26263a;padding:6px;'>Arturo "NEON KID"</td><td style='border:1px solid #26263a;padding:6px;'>Correo</td><td style='border:1px solid #26263a;padding:6px;color:#4ade80;'>Atendida</td><td style='border:1px solid #26263a;padding:6px;'>20/02/2025</td><td style='border:1px solid #26263a;padding:6px;'>Excluido de marketing.</td></tr>
+        <tr><td style='border:1px solid #26263a;padding:6px;'>ARCO-005-2025</td><td style='border:1px solid #26263a;padding:6px;'>01/03/2025</td><td style='border:1px solid #26263a;padding:6px;'>Acceso + Rectificación</td><td style='border:1px solid #26263a;padding:6px;'>Daniela Cruz</td><td style='border:1px solid #26263a;padding:6px;'>Web</td><td style='border:1px solid #26263a;padding:6px;color:#f5c74e;'>En proceso</td><td style='border:1px solid #26263a;padding:6px;'>—</td><td style='border:1px solid #26263a;padding:6px;'>Se solicitó identificación adicional.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</p>
+        </div>
+
+        <!-- TÉRMINOS Y CONDICIONES -->
+        <div id="terminos-condiciones" class="legal-block">
+          <h3>Términos y Condiciones de Servicio</h3>
+          <p>
+            Los presentes Términos y Condiciones regulan el acceso y uso de los servicios ofrecidos por
+            BLACKRHYMES STUDIO MX S.A. de C.V. (“BLACKRHYMES”) a través del sitio web y en el estudio ubicado en Ciudad de México.
+          </p>
+
+          <h4>Descripción de los servicios</h4>
+          <p>BLACKRHYMES ofrece, entre otros, los siguientes servicios:</p>
+          <ul>
+            <li>Grabación de voz y, en su caso, instrumentos en estudio.</li>
+            <li>Mezcla básica y avanzada de proyectos musicales.</li>
+            <li>Beatmaking y producción musical para géneros urbanos.</li>
+            <li>Asesoría para lanzamiento digital y promoción de música.</li>
+          </ul>
+
+          <h4>Contratación, entrega y ejecución de los servicios</h4>
+          <ul>
+            <li>El usuario envía una solicitud de reserva mediante el formulario, WhatsApp o correo.</li>
+            <li>
+              BLACKRHYMES responde con disponibilidad, descripción del servicio, tiempos aproximados y costos finales, incluyendo impuestos.
+            </li>
+            <li>
+              Al aceptar la cotización, se podrá solicitar un anticipo para asegurar la fecha. El resto se paga el día de la sesión o según se acuerde por escrito.
+            </li>
+            <li>
+              El servicio se presta en la fecha y horario acordados en el estudio de BLACKRHYMES, salvo causas de fuerza mayor.
+            </li>
+          </ul>
+
+          <h4>Cancelaciones, reembolsos y reprogramaciones</h4>
+          <ul>
+            <li>Las cancelaciones con al menos 48 horas de anticipación pueden reprogramarse sin costo.</li>
+            <li>
+              Si cancelas con menos de 24 horas o no te presentas, el anticipo podrá no ser reembolsable,
+              salvo casos de fuerza mayor debidamente justificados.
+            </li>
+            <li>
+              Si BLACKRHYMES cancela por causas propias (por ejemplo, falla técnica grave), se reprogramará la sesión
+              o se reembolsará el anticipo pagado.
+            </li>
+          </ul>
+
+          <h4>Pagos, comprobantes y facturación CFDI</h4>
+          <p>
+            Los pagos pueden realizarse mediante pasarelas de pago certificadas (como PayPal, Mercado Pago o Conekta),
+            transferencia bancaria o métodos acordados por escrito.
+          </p>
+          <p>
+            El usuario recibirá confirmación del pago y, si lo solicita dentro del mismo mes, se emitirá la factura CFDI
+            correspondiente con los datos fiscales proporcionados.
+          </p>
+
+          <h4>Limitación de responsabilidad</h4>
+          <p>
+            BLACKRHYMES se compromete a prestar sus servicios con la diligencia razonable, pero no garantiza resultados
+            específicos en cuanto a aceptación comercial o éxito de la música grabada.
+          </p>
+          <ul>
+            <li>No somos responsables de la aceptación de tu música por parte de sellos, plataformas o público.</li>
+            <li>No nos hacemos responsables por el uso que des a los archivos entregados una vez fuera de nuestro control.</li>
+            <li>
+              En la medida permitida por la legislación aplicable, la responsabilidad total de BLACKRHYMES se limitará
+              al monto efectivamente pagado por el servicio específico.
+            </li>
+          </ul>
+
+          <h4>Propiedad intelectual y marca</h4>
+          <ul>
+            <li>
+              El usuario conserva los derechos de autor sobre sus composiciones, letras y grabaciones, salvo pacto distinto por escrito.
+            </li>
+            <li>
+              La marca BLACKRHYMES™, logotipos, identidad visual, plantillas de mezcla y materiales del sitio son propiedad
+              de BLACKRHYMES STUDIO MX S.A. de C.V. y están protegidos por la legislación mexicana e internacional.
+            </li>
+            <li>
+              El uso del símbolo ™ indica que la marca se encuentra en proceso de protección y/o uso distintivo ante el IMPI
+              dentro de la clase 41 de la Clasificación de Niza (servicios de entretenimiento y estudio de grabación).
+            </li>
+            <li>
+              El usuario autoriza de forma no exclusiva a que BLACKRHYMES mencione su nombre artístico y título de la obra
+              como parte de su portafolio, salvo que solicite lo contrario por escrito.
+            </li>
+          </ul>
+
+          <h4>Edad mínima y conducta en el estudio</h4>
+          <ul>
+            <li>Las personas menores de 18 años deberán acudir acompañadas de madre, padre o tutor.</li>
+            <li>
+              No se permite el consumo de sustancias ilegales o conductas agresivas dentro del estudio. BLACKRHYMES podrá dar por terminada la sesión sin reembolso en casos de faltas graves.
+            </li>
+          </ul>
+
+          <h4>Aceptación</h4>
+          <p>
+            Al utilizar el sitio, enviar una solicitud de reserva o presentarte a una sesión, declaras haber leído y aceptado
+            estos Términos y Condiciones y el Aviso de Privacidad vigentes.
+          </p>
+        </div>
+
+        <!-- POLÍTICA DE COOKIES COMPLETA -->
+        <div id="politica-cookies" class="legal-block">
+          <h3>Política de Cookies – Datos que obtiene cada cookie y su finalidad</h3>
+
+          <p>
+            Este sitio utiliza cookies propias y de terceros. Las cookies son pequeños archivos que se almacenan en tu navegador y que permiten reconocer tu dispositivo, recordar tus preferencias o analizar tu actividad dentro del sitio.
+          </p>
+
+          <h4>1. Cookies necesarias (propias)</h4>
+          <p>Estas cookies permiten el funcionamiento básico del sitio. Sin ellas, el sitio no puede operar correctamente.</p>
+          <ul>
+            <li><strong>Cookie:</strong> <code>br_cookie_prefs_v1</code></li>
+            <li><strong>Datos que obtiene:</strong> preferencias de consentimiento del usuario (si aceptó cookies analíticas o de publicidad).</li>
+            <li><strong>Finalidad:</strong> recordar tu decisión sobre cookies para no mostrar el banner repetidamente.</li>
+            <li><strong>Base legal:</strong> interés legítimo.</li>
+            <li><strong>Duración:</strong> 180 días.</li>
+            <li><strong>Tipo:</strong> propia (BLACKRHYMES).</li>
+          </ul>
+
+          <h4>2. Cookies analíticas (opcionales, propias o de terceros)</h4>
+          <p>
+            Solo se activan si otorgas tu consentimiento desde el banner. Sirven para medir tráfico y uso del sitio de forma agregada y anónima.
+          </p>
+          <ul>
+            <li><strong>Cookie:</strong> <code>analytics_session_id</code> (si se implementa Google Analytics o similar)</li>
+            <li><strong>Datos que obtiene:</strong>
+              <ul>
+                <li>Páginas visitadas.</li>
+                <li>Tiempo de permanencia.</li>
+                <li>Tipo de dispositivo y navegador.</li>
+                <li>Área aproximada (ciudad/país basado en IP anonimizada).</li>
+              </ul>
+            </li>
+            <li><strong>Finalidad:</strong> mejorar contenidos, navegación y experiencia del usuario.</li>
+            <li><strong>Base legal:</strong> consentimiento.</li>
+            <li><strong>Duración:</strong> 1 día a 14 meses dependiendo del proveedor.</li>
+            <li><strong>Tipo:</strong> puede ser de terceros si usas Google Analytics, Plausible, Fathom o similares.</li>
+          </ul>
+
+          <h4>3. Cookies de publicidad (opcionales, de terceros)</h4>
+          <p>
+            Solo se activan si otorgas consentimiento. Se usan para mostrar anuncios relevantes de BLACKRHYMES en plataformas externas.
+          </p>
+          <ul>
+            <li><strong>Cookie:</strong> <code>ads_user_id</code> (propia o de terceros, según la plataforma)</li>
+            <li><strong>Datos que obtiene:</strong>
+              <ul>
+                <li>Identificador anónimo del navegador.</li>
+                <li>Preferencias de contenido.</li>
+                <li>Acciones dentro del sitio (por ejemplo, visitar paquetes o iniciar formulario).</li>
+              </ul>
+            </li>
+            <li><strong>Finalidad:</strong> crear audiencias anonimizadas para publicidad digital.</li>
+            <li><strong>Base legal:</strong> consentimiento explícito.</li>
+            <li><strong>Duración:</strong> 1 a 90 días (según el servicio publicitario).</li>
+            <li><strong>Tipo:</strong> tercera parte (Meta Ads, Google Ads o similares si se usan).</li>
+          </ul>
+
+          <h4>4. Conservación de datos y control del usuario</h4>
+          <p>
+            Puedes borrar todas las cookies desde la configuración de tu navegador. Además, puedes cambiar tu consentimiento en cualquier momento volviendo a abrir el banner de cookies si se vuelve a mostrar.
+          </p>
+
+          <h4>5. Retiro del consentimiento</h4>
+          <p>
+            Para revocar tu consentimiento de cookies analíticas o de publicidad, basta con seleccionar “solo necesarias” en el banner o borrar las cookies en tu navegador.
+          </p>
+        </div>
+
+        <!-- INFORMACIÓN COMERCIAL OBLIGATORIA -->
+        <div class="legal-block">
+          <h3>Información comercial del proveedor</h3>
+          <h4>Datos del proveedor</h4>
+          <p>
+            <strong>Nombre comercial:</strong> BLACKRHYMES Estudio de Grabación Urbano™<br>
+            <strong>Razón social:</strong> BLACKRHYMES STUDIO MX S.A. de C.V.<br>
+            <strong>RFC:</strong> BSM230101ABC (ejemplo para fines ilustrativos)<br>
+            <strong>Domicilio:</strong> Av. Sonora 123, Col. Roma Norte, Alcaldía Cuauhtémoc, C.P. 06700, Ciudad de México, México.
+          </p>
+
+          <h4>Contacto</h4>
+          <p>
+            <strong>Correo general:</strong> contacto@blackrhymes.mx<br>
+            <strong>Correo para temas de datos personales (ARCO):</strong> datos@blackrhymes.mx<br>
+            <strong>WhatsApp / Teléfono:</strong> +52 55 0000 0000<br>
+            <strong>Horario de atención:</strong> Lunes a sábado, 11:00 a 20:00 hrs (hora de CDMX).
+          </p>
+
+          <h4>Costos y aceptación del cliente</h4>
+          <p>
+            Los precios mostrados en esta página son finales en MXN e incluyen impuestos. Cualquier comisión adicional de pasarela
+            de pago se informará antes de confirmar el cobro.
+          </p>
+          <p>
+            Antes de enviar el formulario de reserva, se solicita al usuario marcar una casilla de aceptación de los
+            Términos y Condiciones y del Aviso de Privacidad, con un enlace directo a ambos textos en esta página.
+          </p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <strong>BLACKRHYMES Estudio de Grabación Urbano™</strong><br>
+          BLACKRHYMES STUDIO MX S.A. de C.V. · RFC BSM230101ABC
+        </div>
+        <div class="footer-links">
+          <a href="#aviso-privacidad">Aviso de Privacidad</a>
+          <a href="#terminos-condiciones">Términos y Condiciones</a>
+          <a href="#politica-cookies">Política de Cookies</a>
+          <a href="#cta-final">Reservar</a>
+        </div>
+      </div>
+      <div>
+        © 2025 BLACKRHYMES. Todos los derechos reservados. El uso de este sitio implica la aceptación de los Términos y Condiciones y del Aviso de Privacidad.
+      </div>
+    </div>
+  </footer>
+
+  <!-- BANNER DE COOKIES -->
+  <div class="cookie-banner" id="cookie-banner" aria-live="polite">
+    <p>
+      Usamos cookies necesarias para que este sitio funcione correctamente y, con tu permiso, cookies analíticas y de publicidad para mejorar tu experiencia.
+      Puedes aceptar todas, rechazar las no esenciales o configurar tus preferencias.
+    </p>
+    <div class="cookie-panel" id="cookie-panel">
+      <h4>Configurar cookies</h4>
+      <div class="cookie-panel-item">
+        <input type="checkbox" checked disabled>
+        <div>
+          <strong>Necesarias</strong><br>
+          Imprescindibles para el funcionamiento básico del sitio y recordar tu decisión sobre cookies.
+        </div>
+      </div>
+      <div class="cookie-panel-item">
+        <input type="checkbox" id="cookie-analytics">
+        <div>
+          <strong>Analíticas</strong><br>
+          Nos ayudan a entender cómo se usa el sitio para mejorarlo (desactivadas por defecto).
+        </div>
+      </div>
+      <div class="cookie-panel-item">
+        <input type="checkbox" id="cookie-ads">
+        <div>
+          <strong>Publicidad</strong><br>
+          Pueden mostrarte anuncios de BLACKRHYMES en otras plataformas (desactivadas por defecto).
+        </div>
+      </div>
+    </div>
+    <div class="cookie-actions">
+      <button class="cookie-btn" id="cookie-config-btn">Configurar</button>
+      <button class="cookie-btn" id="cookie-reject-btn">Solo necesarias</button>
+      <button class="cookie-btn primary" id="cookie-accept-btn">Aceptar todas</button>
+    </div>
+  </div>
+
+  <script>
+    // Animaciones en scroll
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+    reveals.forEach(el => observer.observe(el));
+
+    // Validación simple del formulario
+    const form = document.getElementById('booking-form');
+    const alertBox = document.getElementById('alert-form');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const nombre = form.nombre.value.trim();
+      const email = form.email.value.trim();
+      const whatsapp = form.whatsapp.value.trim();
+      const tipo = form['tipo-sesion'].value;
+      const acepto = form.acepto.checked;
+
+      if (!nombre || !email || !whatsapp || !tipo || !acepto) {
+        alertBox.style.display = 'block';
+        return;
+      }
+
+      alertBox.style.display = 'none';
+      alert('Tu solicitud de reserva fue enviada. Nos pondremos en contacto contigo para confirmar fecha y horario.');
+      form.reset();
+    });
+
+    // Gestión de cookies
+    const COOKIE_KEY = 'br_cookie_prefs_v1';
+    function getCookiePrefs() {
+      try {
+        const stored = localStorage.getItem(COOKIE_KEY);
+        return stored ? JSON.parse(stored) : null;
+      } catch (err) {
+        return null;
+      }
+    }
+    function setCookiePrefs(prefs) {
+      try {
+        localStorage.setItem(COOKIE_KEY, JSON.stringify(prefs));
+      } catch (err) {}
+    }
+
+    function initCookieBanner() {
+      const banner = document.getElementById('cookie-banner');
+      const panel = document.getElementById('cookie-panel');
+      const btnConfig = document.getElementById('cookie-config-btn');
+      const btnAccept = document.getElementById('cookie-accept-btn');
+      const btnReject = document.getElementById('cookie-reject-btn');
+      const analytics = document.getElementById('cookie-analytics');
+      const ads = document.getElementById('cookie-ads');
+
+      const prefs = getCookiePrefs();
+      if (!prefs) {
+        banner.style.display = 'block';
+      } else {
+        analytics.checked = !!prefs.analytics;
+        ads.checked = !!prefs.ads;
+        // Aquí podrías cargar scripts analíticos o de publicidad según prefs.analytics / prefs.ads
+      }
+
+      btnConfig.addEventListener('click', () => {
+        panel.style.display = panel.style.display === 'block' ? 'none' : 'block';
+      });
+
+      btnAccept.addEventListener('click', () => {
+        setCookiePrefs({ necessary: true, analytics: true, ads: true });
+        analytics.checked = true;
+        ads.checked = true;
+        banner.style.display = 'none';
+      });
+
+      btnReject.addEventListener('click', () => {
+        setCookiePrefs({ necessary: true, analytics: false, ads: false });
+        analytics.checked = false;
+        ads.checked = false;
+        banner.style.display = 'none';
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', initCookieBanner);
+  </script>
+</body>
+</html>
